@@ -23,11 +23,15 @@ const fortuneEnds = {
     world: ['is your oyster', 'demands to be seen', 'is a beautiful place']
 }
 
-
+//generates random fortune comprising of a start, middle, end
 const generateRandomFortune = () => {
+    //placeholder for start, middle, and end pieces
     let fortuneSentence = [];
+    //generates a random start from fortuneStarters array
     const randStart = selectRandom(fortuneStarters);
+    //pushes random start to the placeholder array
     fortuneSentence.push(randStart);
+    //generates a random middle based on the random start
     const genRandMiddle = () => {
         if(randStart === 'You'){
         return selectRandom(fortuneMiddles.you );
@@ -37,9 +41,9 @@ const generateRandomFortune = () => {
         return selectRandom(fortuneMiddles.the);
         }  
     };
-
+    //pushes random middle to the placeholder array
     fortuneSentence.push(genRandMiddle()); 
-
+    //generates a random end based on what is currently in placeholder array
     const genRandEnd = () => {
         if(fortuneSentence.join(' ') === 'You are'){
          return selectRandom(fortuneEnds.are);
@@ -61,8 +65,9 @@ const generateRandomFortune = () => {
          return selectRandom(fortuneEnds.universe);
         }
     }
-
+    //pushes random end to placeholder array
     fortuneSentence.push(genRandEnd());
+    //joins all 3 variables in placeholder array to form the fortune sentence
     return fortuneSentence.join(' ');
     
 }
