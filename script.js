@@ -68,7 +68,7 @@ const generateRandomFortune = () => {
     //pushes random end to placeholder array
     fortuneSentence.push(genRandEnd());
     //joins all 3 variables in placeholder array to form the fortune sentence
-    return fortuneSentence.join(' ');
+    console.log(fortuneSentence.join(' '));
     
 }
     
