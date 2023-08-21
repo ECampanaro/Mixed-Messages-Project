@@ -23,5 +23,19 @@ const selectRandom = (input) => {
     return input[Math.floor(Math.random() * input.length)];
 };
 
-
-
+const generateRandomFortune = () => {
+    const randStart = selectRandom(fortuneStarters);
+    const genRandMiddle = () => {
+        if(randStart === 'You'){
+        return selectRandom(fortuneMiddles.you );
+        } else if (randStart === 'Your'){
+        return selectRandom(fortuneMiddles.your);
+        } else if (randStart === 'The'){
+        return selectRandom(fortuneMiddles.the);
+        }  
+    };
+    //console.log(genRandMiddle());
+   return `${randStart} ${genRandMiddle()}`
+}
+    
+console.log(generateRandomFortune());
